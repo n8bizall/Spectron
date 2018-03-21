@@ -1,16 +1,9 @@
 <h2>Our Contacts</h2>
-<ul class="contact">
+<ul class="contacts">
   <li *ngFor="let contact of contacts" 
   [class.selected]="contact === selectedContact"
   (click)="onSelect(contact)">
     <span class="badge">{{contact.name}}</span>   | {{contact.phone}}   |   {{contact.email}}
   </li>
 </ul>
-<div *ngIf='selectedContact'>
-<h2>{{ selectedContact.name | uppercase }} Details</h2>
-<div><span>Name: </span>{{selectedContact.name}}</div>
-<div>
-    <label>
-      <input [(ngModel)]="selectedContact.name" placeholder="name">
-    </label>
-</div></div>
+<app-contact-detail [contact]="selectedContact"></app-contact-detail>
